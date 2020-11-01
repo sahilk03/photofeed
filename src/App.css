@@ -1,38 +1,195 @@
-.App {
+.App{
+  padding:0;
+  display: flex;
+/* flex-direction:row; */
+/* justify-content:center; */
+/* flex-wrap: wrap; */
+height: 100vh;
+overflow: hidden;
+/* overflow-y:; */
+}
+
+.image_tile{
+  height: 280px;
+  min-width: 400px;
+  width: fit-content;
+  border-radius: 15px;
+  flex-grow:1;
+  /* margin: 10px 50px; */
+  max-width: 400px;
+  display: flex;
+  flex-direction:column;
+  box-shadow: 7px -4px 6px -6px #777;
+  box-shadow: 2px 8px 6px -6px #777;
+  overflow: hidden;
+  cursor: pointer;
+}
+/* .image_tile > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+.image_image{
+  flex-grow:2;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+p{
+  line-height: 1rem;
+  font: 14px/10px DINPro;
+  padding : 0 5px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 2%; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content */
+
+.arrow {
+  border: solid #595656;
+  border-width: 0 8px 8px 0;
+  display: inline-block;
+  padding: 3px;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.right:hover{
+  transform: scale(1.5) rotate(-45deg);
+}
+.left:hover{
+  transform: scale(1.5) rotate(135deg);
+}
+.right {
+  position: absolute;
+  top: 40%;
+  right: 2%;
+  width: 20px;
+  height: 20px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.left {
+  position: absolute;
+  top: 40%;
+  left: 2%;
+  width: 20px;
+  height: 20px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  border: 1px solid #888;
+  width: 80vw;
+  height: 90%;	
+  position: relative;
+}
+.close{
+  position: absolute;
+  top:0;
+  z-index: 2;
+  width:20px;
+  right: 0;
+}
+.modal_img_container{
+  width: 80vw;
+  height: 100%;
+  overflow: hidden;
+}
+
+.modal_allimg_container{
+  width: 240vw;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.modal_image{
+  width: 80vw;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
 }
 
-.App-link {
-  color: #61dafb;
+.center{
+  left:0;
+  z-index: 1;
+}
+.prev{
+  left:-80vw;
+  z-index: 1;
+}
+.next{
+  left:80vw;
+  z-index: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.slidingleft{
+  animation: slidinglefter 4s linear 1;
+}
+
+@keyframes slidinglefter {
+  from {transform:translateX(0); }
+  to { transform: translateX(80vw); }
+}
+
+.slidingright{
+  animation: sliderright 4s linear 1;
+}
+
+@keyframes sliderright {
+  from {transform:translateX(0); }
+  to { transform: translateX(-80vw); }
+}
+
+
+.autosizer{
+  height: 100% !important;
+  width: 100% !important;
+  border: none !important;
+  outline: unset !important;
+}
+.autosizer:focus,.Masonry:focus{
+  outline: unset !important;
+}
+
+.Masonry{
+  width: 100% !important;
+  height: 100vh !important;
+
+ padding: 0 10%;
+ border: none !important;
 }
