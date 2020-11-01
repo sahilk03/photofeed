@@ -6,7 +6,6 @@ import {
   CellMeasurerCache,
   createMasonryCellPositioner,
   Masonry,
-  InfiniteLoader,
 } from "react-virtualized";
 import "react-virtualized/styles.css"; // only needs to be imported once
 
@@ -188,7 +187,6 @@ class App extends React.Component {
       .then((res) => res.json())
       .then((data) => data.results)
       .then((data) => {
-        console.log(data);
         this.setState({ images: data });
       });
   }
